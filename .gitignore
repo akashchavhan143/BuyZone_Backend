@@ -1,0 +1,38 @@
+########################################################
+# Spring Boot / Java backend
+########################################################
+
+# ─── Build output ─────────────────────────────────────
+target/
+build/
+out/
+
+# ─── Maven / Gradle wrappers ──────────────────────────
+.mvn/wrapper/maven-wrapper.jar
+**/gradle-wrapper.jar
+**/gradlew
+**/gradlew.bat
+
+# ─── IDE settings ─────────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# ─── Logs & temp ──────────────────────────────────────
+*.log
+*.tmp
+*.bak
+
+# ─── OS files ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+
+# ─── Local configs you don’t want in Git ─────────────
+src/main/resources/application-dev.properties
+.env
