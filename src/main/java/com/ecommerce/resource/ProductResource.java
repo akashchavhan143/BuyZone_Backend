@@ -25,7 +25,7 @@ import com.ecommerce.entity.User;
 import com.ecommerce.exception.ProductSaveFailedException;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.StorageService;
+import com.ecommerce.storage.StorageService;
 import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.ProductStatus;
 

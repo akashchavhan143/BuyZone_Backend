@@ -1,5 +1,6 @@
-package com.ecommerce.service;
+package com.ecommerce.storage;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.core.io.Resource;
@@ -9,7 +10,7 @@ public interface StorageService {
 
 	List<String> loadAll();
 
-	String store(MultipartFile file);
+	String store(MultipartFile file) ;
 
 	Resource load(String fileName);
 
