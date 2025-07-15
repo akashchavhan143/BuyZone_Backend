@@ -90,7 +90,9 @@ public class ProductResource {
 
 		// store product image in Image Folder and give name to store in database
 		String productImageName1 = storageService.store(productDto.getImage1());
+
 		String productImageName2 = storageService.store(productDto.getImage2());
+
 		String productImageName3 = storageService.store(productDto.getImage3());
 
 		product.setImage1(productImageName1);

@@ -30,55 +30,55 @@ public class CloudinaryStorageServiceImpl implements StorageService {
         return null;
     }
 
-//    @Override
-//    public String store(MultipartFile file) {
-//        try {
-//            Map<?, ?> uploadResult = cloudinary.uploader()
-//                    .upload(file.getBytes(), ObjectUtils.emptyMap());
-//            return uploadResult.get("secure_url").toString();
-//        } catch (IOException e) {
-//            throw new RuntimeException("Failed to upload file to Cloudinary", e);
-//        }
-//    }
+    @Override
     public String store(MultipartFile file) {
-        // Determine folder based on file type
-        String folder = getFolderForFileType(file.getContentType());
-
-        Map<?, ?> uploadResult = null;
         try {
-            uploadResult = cloudinary.uploader().upload(file.getBytes(),
-                    ObjectUtils.asMap(
-                            "folder", folder,
-                            "resource_type", "auto", // Automatically detect image/raw file
-                            "use_filename", true,
-                            "unique_filename", false
-                    ));
+            Map<?, ?> uploadResult = cloudinary.uploader()
+                    .upload(file.getBytes(), ObjectUtils.emptyMap());
+            return uploadResult.get("secure_url").toString();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to upload file to Cloudinary", e);
         }
-
-        return uploadResult.get("secure_url").toString();
     }
-
-    private String getFolderForFileType(String contentType) {
-        if (contentType == null) {
-            return "misc";
-        }
-
-        return switch (contentType.split("/")[0]) {
-            case "image" -> "images";
-            case "application" -> {
-                if (contentType.equals("application/pdf")) {
-                    yield "documents/pdf";
-                }
-                yield "documents";
-            }
-            case "text" -> "documents/text";
-            case "video" -> "videos";
-            case "audio" -> "audio";
-            default -> "misc";
-        };
-    }
+//    public String store(MultipartFile file) {
+//        // Determine folder based on file type
+//        String folder = getFolderForFileType(file.getContentType());
+//
+//        Map<?, ?> uploadResult = null;
+//        try {
+//            uploadResult = cloudinary.uploader().upload(file.getBytes(),
+//                    ObjectUtils.asMap(
+//                            "folder", folder,
+//                            "resource_type", "auto", // Automatically detect image/raw file
+//                            "use_filename", true,
+//                            "unique_filename", false
+//                    ));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        return uploadResult.get("secure_url").toString();
+//    }
+//
+//    private String getFolderForFileType(String contentType) {
+//        if (contentType == null) {
+//            return "misc";
+//        }
+//
+//        return switch (contentType.split("/")[0]) {
+//            case "image" -> "images";
+//            case "application" -> {
+//                if (contentType.equals("application/pdf")) {
+//                    yield "documents/pdf";
+//                }
+//                yield "documents";
+//            }
+//            case "text" -> "documents/text";
+//            case "video" -> "videos";
+//            case "audio" -> "audio";
+//            default -> "misc";
+//        };
+//    }
 
 
     @Override
