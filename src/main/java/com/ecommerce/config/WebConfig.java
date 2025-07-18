@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class WebConfig {
     @Value("${font-end.url}")
-    private String frontEndUrl;
+    private String frontEndUrls;
 
 
     private static final Long MAX_AGE = 3600L;
@@ -28,7 +28,11 @@ public class WebConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin(frontEndUrl);
+        // Support multiple allowed origins
+        for (String origin : frontEndUrls.split(",")) {
+            config.addAllowedOrigin(origin.trim());
+        }
+
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.AUTHORIZATION,
                 HttpHeaders.CONTENT_TYPE,
