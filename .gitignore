@@ -34,5 +34,5 @@ ehthumbs.db
 *.swp
 
 # ─── Local configs you don’t want in Git ─────────────
-src/main/resources/application-dev.properties
+#src/main/resources/application-dev.properties
 .env
