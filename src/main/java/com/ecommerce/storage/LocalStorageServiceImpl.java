@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@Profile("dev")
+@Profile("postgresqldev")
 public class LocalStorageServiceImpl implements StorageService {
 
     @Value("${com.onlineshopping.image.folder.path}")

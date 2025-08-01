@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "prod")
+@ConditionalOnProperty(name = "spring.profiles.active", havingValue = "postgresql")
 public class CloudinaryConfig {
 
     @Value("${cloudinary.cloud-name}")

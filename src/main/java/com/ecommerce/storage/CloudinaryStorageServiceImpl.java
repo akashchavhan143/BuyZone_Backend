@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Profile("prod")
+@Profile("postgresql")
 @ConditionalOnBean(Cloudinary.class)
 public class CloudinaryStorageServiceImpl implements StorageService {
 
